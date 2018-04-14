@@ -48,7 +48,7 @@
                         Cidade: <input type="text" name="cidade">
                         Email: <input type="text" name="email">
                         Telefone: <input type="text" name="telefone">
-                        Celular: <input type="text" name="celular">
+                        Celular: <input type="number" name="celular">
                         <button type="submit">Cadastrar</button>
                     </form>
                 </div>
