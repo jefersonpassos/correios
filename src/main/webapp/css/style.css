@@ -670,3 +670,13 @@ header nav .fas.fa-bars {color: #b6131d;}
   transform: rotate(-5deg);
 }
 /*rastreio*/
+
+
+.form-cliente input {
+  display: block;
+  width: 100%;
+}
+.form-cliente select {
+  display: block;
+  width: 100%;
+}
