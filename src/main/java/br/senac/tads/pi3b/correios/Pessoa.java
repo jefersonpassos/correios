@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senac.tads.pi3b.agendaweb;
+package br.senac.tads.pi3b.correios;
 
 import java.text.DateFormat;
 import java.text.ParseException;
