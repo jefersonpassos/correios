@@ -5,7 +5,21 @@ public class Cliente extends Usuario{
 	private int idCliente;
 	private String endereco;
 	private String cep;
-	
+	/*
+
+Nome: 
+CPF: 
+Sobrenome:
+RG: 
+Endereço: 
+CEP: 
+Telefone: 
+Celular: 
+Estado: 
+Cidade: 
+Email: 
+ 
+        */
 	public Cliente(int idCliente, String nome, String endereco, String cep) {
 		this.idCliente = idCliente;
 		this.nome = nome;
