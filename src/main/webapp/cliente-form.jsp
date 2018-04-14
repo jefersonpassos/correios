@@ -11,20 +11,16 @@
                 <div class="form-cliente">
                     <form action="" method="post">
                         <div class="col s12 m12 l6">
-                            Nome: <input type="text" name="nome">
+                            Nome Completo: <input type="text" name="nome">
                             CPF: <input type="text" name="cpf">
                         </div>
                         <div class="col s12 m12 l6">
-                            Sobrenome: <input type="text" name="sobrenome">
-                            RG: <input type="text" name="rg">
+                            Telefone: <input type="text" name="telefone">
+                            Email: <input type="email" name="email">
                         </div>
                         <div class="col s12 m12 l6">
                             Endereço: <input type="text" name="endereco">
                             CEP: <input type="text" name="cep">
-                        </div>
-                        <div class="col s12 m12 l6">
-                            Telefone: <input type="text" name="telefone">
-                            Celular: <input type="number" name="celular"> 
                         </div>
                         <div class="col s12 m12 l6">
                             Estado: 
@@ -59,9 +55,7 @@
                             </select>
                             Cidade: <input type="text" name="cidade">    
                         </div>
-                        
                         <div class="col s12 m12 l6">
-                            Email: <input type="email" name="email">
                             <button type="submit">Cadastrar</button>
                         </div>
                         

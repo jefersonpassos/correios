@@ -1,57 +1,102 @@
-package usuarios;
+package br.senac.tads.pi3b.correios;
 
-public class Cliente extends Usuario{
-	
-	private int idCliente;
-	private String endereco;
-	private String cep;
-	/*
+public class Cliente{
+    
+    private int idCliente;
+    private String nome;
+    private String endereco;
+    private String cep;
+    private String telefone;
+    private String estado;
+    private String cidade;
+    private String email;
+    private String cpf;
 
-Nome: 
-CPF: 
-Sobrenome:
-RG: 
-Endereço: 
-CEP: 
-Telefone: 
-Celular: 
-Estado: 
-Cidade: 
-Email: 
- 
-        */
-	public Cliente(int idCliente, String nome, String endereco, String cep) {
-		this.idCliente = idCliente;
-		this.nome = nome;
-		this.endereco = endereco;
-		this.cep = cep;
-	}
+    public Cliente(String nome, String telefone, String cpf, 
+            String email, String endereco, String estado, String cep, String cidade) {
+        //this.idCliente = idCliente;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.cep = telefone;
+        this.cep = estado;
+        this.cep = cep;
+        this.cpf = cpf;
+        this.cidade = cidade;
+        this.email = email;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
 
-	public int getIdCliente() {
-		return idCliente;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
-	}
+    public String getTelefone() {
+        return telefone;
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    public String getEstado() {
+        return estado;
+    }
 
-	public String getCep() {
-		return cep;
-	}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-	
-	
-	
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    
+    
+    
 
 }
