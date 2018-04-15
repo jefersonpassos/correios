@@ -9,7 +9,7 @@
         <div class="row">
             <div class ="col s12 m12 l12">
                 <div class="form-cliente">
-                    <form action="" method="post">
+                    <form action="${pageContext.request.contextPath}/novo-cliente" method="post">
                         <div class="col s12 m12 l6">
                             Nome Completo: <input type="text" name="nome">
                             CPF: <input type="text" name="cpf">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="col s12 m12 l6">
                             Estado: 
-                            <select name="estados">
+                            <select name="estado">
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
                                 <option value="AP">Amapá</option>

@@ -1,3 +1,5 @@
-usuarios/Funcionario.class
-br/senac/tads/pi3b/correios/Cliente.class
-usuarios/Usuario.class
+br\senac\tads\pi3b\correios\Cliente.class
+br\senac\tads\pi3b\correios\NovoCliente.class
+usuarios\Usuario.class
+usuarios\Funcionario.class
+br\senac\tads\pi3b\correios\ClienteformServlet.class
