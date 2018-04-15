@@ -47,7 +47,6 @@ public class NovoClienteServlet extends HttpServlet {
         Cliente cliente = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade);
         
         PrintWriter writer = resp.getWriter();
-        writer.println("<h1>"+cliente.getNome()+"</h1>");
         
         try {
             DaoCliente.incluir(cliente);

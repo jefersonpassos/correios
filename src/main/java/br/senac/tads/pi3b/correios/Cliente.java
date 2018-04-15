@@ -17,8 +17,8 @@ public class Cliente{
         //this.idCliente = idCliente;
         this.nome = nome;
         this.endereco = endereco;
-        this.cep = telefone;
-        this.cep = estado;
+        this.telefone = telefone;
+        this.estado = estado;
         this.cep = cep;
         this.cpf = cpf;
         this.cidade = cidade;
