@@ -1,6 +1,6 @@
 <header>
 	<div class="container">
-			<h1 class="logo">Astec</h1>
+			<h1 class="logo"><a href="${pageContext.request.contextPath}/home.jsp">Astec</a></h1>
 			<nav>
 				<ul>
 					<li><i class="fas fa-user-circle"></i></li>

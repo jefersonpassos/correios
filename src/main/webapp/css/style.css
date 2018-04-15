@@ -530,7 +530,8 @@ readers do not read off random characters that represent icons */
 }
 
 /*header*/
-header .logo {color: #b6131d;float: left;}
+header .logo a{color: #b6131d;float: left;transition: 0.8s;}
+header .logo a:hover {transform: scale(1.1);transition: 0.6s;}
 
 header nav {float: right;}
 header nav ul {padding: 0;margin: 30px;}
