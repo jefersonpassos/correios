@@ -5,7 +5,6 @@
  */
 package br.senac.tads.pi3b.correios;
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -22,48 +21,43 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 
 /**
  *
  * @author rodri
  */
-
 @WebServlet(urlPatterns = "/novo-cliente")
 public class NovoClienteServlet extends HttpServlet {
-    
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
-        
-        String nome = req.getParameter("nome");       
-        String telefone = req.getParameter("telefone");       
-        String cpf = req.getParameter("cpf");       
-        String email = req.getParameter("email");       
-        String endereco = req.getParameter("endereco");       
-        String estado = req.getParameter("estado");       
-        String cep = req.getParameter("cep");       
-        String cidade = req.getParameter("cidade");       
-      
+            throws ServletException, IOException {
+
+        String nome = req.getParameter("nome");
+        String telefone = req.getParameter("telefone");
+        String cpf = req.getParameter("cpf");
+        String email = req.getParameter("email");
+        String endereco = req.getParameter("endereco");
+        String estado = req.getParameter("estado");
+        String cep = req.getParameter("cep");
+        String cidade = req.getParameter("cidade");
+
         Cliente cliente = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade);
-        
-        PrintWriter writer = resp.getWriter();
-        
+
         try {
             DaoCliente.incluir(cliente);
-            
-            writer.println("<html><body>");
-            writer.println("<h1>"+cliente.getNome()+"</h1>");
-            writer.println("</html></body>");
-            
+
+            req.setAttribute("cliente", cliente);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/novo-cliente.jsp");
+            dispatcher.forward(req, resp);
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NovoClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(NovoClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    
+
     }
- 
-    
-    
+
 }
