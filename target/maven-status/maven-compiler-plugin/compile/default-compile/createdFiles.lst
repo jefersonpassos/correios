@@ -1,5 +1,7 @@
+br\senac\tads\pi3b\correios\ClienteBuscaServlet.class
+br\senac\tads\pi3b\correios\DAO\DaoCliente.class
 br\senac\tads\pi3b\correios\Cliente.class
-br\senac\tads\pi3b\correios\NovoCliente.class
 usuarios\Usuario.class
+br\senac\tads\pi3b\correios\DAO\Conection.class
+br\senac\tads\pi3b\correios\NovoClienteServlet.class
 usuarios\Funcionario.class
-br\senac\tads\pi3b\correios\ClienteformServlet.class

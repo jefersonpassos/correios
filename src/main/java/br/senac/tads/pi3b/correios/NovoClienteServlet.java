@@ -29,7 +29,7 @@ import java.util.logging.Logger;
  */
 
 @WebServlet(urlPatterns = "/novo-cliente")
-public class NovoCliente extends HttpServlet {
+public class NovoClienteServlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -47,6 +47,7 @@ public class NovoCliente extends HttpServlet {
         Cliente cliente = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade);
         
         PrintWriter writer = resp.getWriter();
+        writer.println("<h1>"+cliente.getNome()+"</h1>");
         
         try {
             DaoCliente.incluir(cliente);
@@ -56,9 +57,9 @@ public class NovoCliente extends HttpServlet {
             writer.println("</html></body>");
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NovoCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NovoClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(NovoCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NovoClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     
