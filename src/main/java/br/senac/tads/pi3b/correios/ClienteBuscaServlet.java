@@ -35,7 +35,7 @@ public class ClienteBuscaServlet extends HttpServlet {
         try {
             lista = DaoCliente.buscar("11221");
 
-            req.setAttribute("listaCliente", lista);
+            req.setAttribute("lista", lista);
             RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/resultado-cliente.jsp");
             dispatcher.forward(req, resp);
 

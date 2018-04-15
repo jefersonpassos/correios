@@ -9,9 +9,9 @@
             <div class="row">
                 <div class ="col s12 m12 l12 resultado-cliente">
                     <ul>
-                        <c:forEach items="${listaCliente}" var="p">
+                        <c:forEach var="p" items="${lista}"
                             <li>
-                                <h2><c:out value="${p.nome}" /></h2>
+                                <h2>${p.nome}</h2>
                             </li>
                         </c:forEach>
                     </ul>

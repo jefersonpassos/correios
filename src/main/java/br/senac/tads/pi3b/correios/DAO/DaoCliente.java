@@ -92,4 +92,21 @@ public class DaoCliente {
 
     }
 
+    public static void deletar(int id) throws ClassNotFoundException, SQLException {
+        String query = "delete from cliente where idCliente = ?;";
+        try (Connection conn = obterConexao()) {
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setInt(1, 3);
+                stmt.execute();
+                conn.close();
+            } catch (SQLException e) {
+                throw e;
+            }
+        }
+    }
+    
+   
+
 }
