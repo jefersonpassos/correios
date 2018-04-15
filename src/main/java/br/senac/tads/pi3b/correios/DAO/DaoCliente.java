@@ -107,6 +107,32 @@ public class DaoCliente {
         }
     }
     
-   
+    public static void editar(Cliente cliente) throws ClassNotFoundException, SQLException {
+
+        String query = "update  cliente set nomeCliente = ?, telefone = ?, cpf = ?,"
+                + "cep = ?, endereco = ?, estado = ?, cidade = ?, email = ?"
+                + "where idCliente = ?";
+        try (Connection conn = obterConexao()) {
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, cliente.getNome());
+                stmt.setString(2, cliente.getTelefone());
+                stmt.setString(3, cliente.getCpf());
+                stmt.setString(4, cliente.getCep());
+                stmt.setString(5, cliente.getEndereco());
+                stmt.setString(6, cliente.getEstado());
+                stmt.setString(7, cliente.getCidade());
+                stmt.setString(8, cliente.getEmail());
+                stmt.setInt(9, cliente.getIdCliente());
+                stmt.executeUpdate();
+                conn.commit();
+            } catch (SQLException e) {
+                // Volta pra situação onde o autocommit foi definido como false
+                conn.rollback();
+                throw e;
+            }
+        }
+    }
 
 }
