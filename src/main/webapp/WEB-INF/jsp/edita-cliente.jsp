@@ -1,27 +1,25 @@
-<%@page import="br.senac.tads.pi3b.correios.DAO.DaoCliente"%>
+<%@page import="br.senac.tads.pi3b.correios.Cliente"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
     /******ARRUMAR*******/
-    /*
-    String idCliente = request.getParameter("idCliente");
-    int id = Integer.parseInt(idCliente);
-    DaoCliente.buscarId(id);
-    */
+   
     //Como receber o <cliente> como parametro?
     //passa o id como parametro
 
 %>
 <!DOCTYPE html>
 <html>
-    <%@include  file="include/head.jsp" %>
+    <%@include  file="../../include/head.jsp" %>
     <body id="bg-home">
-        <%@include  file="include/header.jsp" %>
+        <%@include  file="../../include/header.jsp" %>
         <div class="container">
             <div class="row">
                 <div class ="col s12 m12 l12">
                     <div class="form-cliente">
-                        <form action="${pageContext.request.contextPath}/edita-cliente" method="post">
+                        <form action="${pageContext.request.contextPath}/update-cliente" method="post">
                             <div class="col s12 m12 l6">
                                 Nome Completo: <input type="text" name="nome" value="${cliente.nome}">
                                 CPF: <input type="text" name="cpf" value="${cliente.cpf}">

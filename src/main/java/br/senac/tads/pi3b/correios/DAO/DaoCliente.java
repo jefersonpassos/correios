@@ -135,19 +135,15 @@ public class DaoCliente {
         }
     }
 
-    public static List<Cliente> buscarId(int id) throws ClassNotFoundException, SQLException {
+    public static Cliente buscarId(int id) throws ClassNotFoundException, SQLException {
 
-        String query = "SELECT * FROM correios.cliente where idCliente = ?";
-
-        List<Cliente> lista = new ArrayList<Cliente>();
+        String query = "select * from correios.cliente where idCliente = ?";
 
         try (Connection conn = obterConexao();
                 PreparedStatement stmt = conn.prepareStatement(query)) {
-            
             stmt.setInt(1, id);
-            
-            try (ResultSet resultados = stmt.executeQuery()) {
 
+            try (ResultSet resultados = stmt.executeQuery()) {
                 while (resultados.next()) {
                     String nome = resultados.getString("nomeCliente");
                     String telefone = resultados.getString("telefone");
@@ -158,16 +154,13 @@ public class DaoCliente {
                     String cidade = resultados.getString("cidade");
                     String email = resultados.getString("email");
                     Cliente c = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade, id);
-                    lista.add(c);
+                    return c;
                 }
-            }
-        } catch (SQLException e) {
+            } catch (SQLException e) {
 
+            }
+            return null;
         }
 
-        // 3) Fechar conexão (tratado pelo try acima - try-with-resources)
-        return lista;
-
     }
-
 }

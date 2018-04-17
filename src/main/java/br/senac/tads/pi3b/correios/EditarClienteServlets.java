@@ -22,32 +22,26 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author rodri
  */
-@WebServlet(urlPatterns = "/deleta-cliente")
-public class DeletaClienteServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/editar-cliente")
+public class EditarClienteServlets extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding("UTF-8");
         String idCliente = req.getParameter("idCliente");
         int id = Integer.parseInt(idCliente);
-        PrintWriter out = resp.getWriter();
-
         try {
-            DaoCliente.deletar(id);
-            out.println("<html>");
-            out.println("<body>");
-            out.println("Cliente: Id-"+ id +"Deletado");
-            out.println("</body>");
-            out.println("</html>");
-            
+            Cliente cliente = DaoCliente.buscarId(id);
+            req.setAttribute("cliente", cliente);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/edita-cliente.jsp");
+            dispatcher.forward(req, resp);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NovoClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarClienteServlets.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(NovoClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarClienteServlets.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
 
     }
 
