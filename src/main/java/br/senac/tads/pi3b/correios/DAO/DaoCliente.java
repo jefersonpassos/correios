@@ -78,8 +78,7 @@ public class DaoCliente {
                     String estado = resultados.getString("estado");
                     String cidade = resultados.getString("cidade");
                     String email = resultados.getString("email");
-
-                    Cliente c = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade);
+                    Cliente c = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade, id);
                     lista.add(c);
                 }
             }

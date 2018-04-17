@@ -43,7 +43,7 @@ public class NovoClienteServlet extends HttpServlet {
         String cep = req.getParameter("cep");
         String cidade = req.getParameter("cidade");
 
-        Cliente cliente = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade);
+        Cliente cliente = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade, 0);
 
         try {
             DaoCliente.incluir(cliente);

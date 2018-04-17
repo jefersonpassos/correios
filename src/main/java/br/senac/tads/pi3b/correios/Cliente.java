@@ -13,8 +13,8 @@ public class Cliente{
     private String cpf;
 
     public Cliente(String nome, String telefone, String cpf, 
-            String email, String endereco, String estado, String cep, String cidade) {
-        //this.idCliente = idCliente;
+            String email, String endereco, String estado, String cep, String cidade, int idCliente) {
+        this.idCliente = idCliente;
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
