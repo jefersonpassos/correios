@@ -5,9 +5,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-
-%>
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +19,7 @@
                             <tr>
                                 <td>ID: ${c.getIdCliente()}</td>
                                 <td>Nome: ${c.nome}</td>
-                                <td><a href="${pageContext.request.contextPath}/edita-cliente?idCliente=">Editar</a> | <a href="${pageContext.request.contextPath}/deleta-cliente?idCliente=${c.getIdCliente()}">Excluir</a></td>
+                                <td><a href="${pageContext.request.contextPath}/edita-cliente.jsp?cliente=${c.getIdCliente()}">Editar</a> | <a href="${pageContext.request.contextPath}/deleta-cliente?idCliente=${c.getIdCliente()}">Excluir</a></td>
                             </tr>
 
                         </c:forEach>

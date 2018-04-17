@@ -106,7 +106,7 @@ public class DaoCliente {
             }
         }
     }
-    
+
     public static void editar(Cliente cliente) throws ClassNotFoundException, SQLException {
 
         String query = "update  cliente set nomeCliente = ?, telefone = ?, cpf = ?,"
@@ -133,6 +133,41 @@ public class DaoCliente {
                 throw e;
             }
         }
+    }
+
+    public static List<Cliente> buscarId(int id) throws ClassNotFoundException, SQLException {
+
+        String query = "SELECT * FROM correios.cliente where idCliente = ?";
+
+        List<Cliente> lista = new ArrayList<Cliente>();
+
+        try (Connection conn = obterConexao();
+                PreparedStatement stmt = conn.prepareStatement(query)) {
+            
+            stmt.setInt(1, id);
+            
+            try (ResultSet resultados = stmt.executeQuery()) {
+
+                while (resultados.next()) {
+                    String nome = resultados.getString("nomeCliente");
+                    String telefone = resultados.getString("telefone");
+                    String cpf = resultados.getString("cpf");
+                    String cep = resultados.getString("cep");
+                    String endereco = resultados.getString("endereco");
+                    String estado = resultados.getString("estado");
+                    String cidade = resultados.getString("cidade");
+                    String email = resultados.getString("email");
+                    Cliente c = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade, id);
+                    lista.add(c);
+                }
+            }
+        } catch (SQLException e) {
+
+        }
+
+        // 3) Fechar conexão (tratado pelo try acima - try-with-resources)
+        return lista;
+
     }
 
 }
