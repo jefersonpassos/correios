@@ -97,10 +97,11 @@ public class DaoCliente {
             conn.setAutoCommit(false);
 
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
-                stmt.setInt(1, 3);
-                stmt.execute();
-                conn.close();
+                stmt.setInt(1, id);
+                stmt.executeUpdate();
+                conn.commit();
             } catch (SQLException e) {
+                conn.rollback();
                 throw e;
             }
         }
