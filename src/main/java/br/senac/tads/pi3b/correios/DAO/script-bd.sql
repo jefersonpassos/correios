@@ -2,7 +2,7 @@ create database correios;
 
 use correios;
 
-create table Cliente(
+create table cliente(
 idCliente int not null auto_increment,
 nomeCliente varchar(30) not null,
 telefone varchar(15), 

@@ -1,7 +1,0 @@
-br\senac\tads\pi3b\correios\ClienteBuscaServlet.class
-br\senac\tads\pi3b\correios\DAO\DaoCliente.class
-br\senac\tads\pi3b\correios\Cliente.class
-usuarios\Usuario.class
-br\senac\tads\pi3b\correios\DAO\Conection.class
-br\senac\tads\pi3b\correios\NovoClienteServlet.class
-usuarios\Funcionario.class
