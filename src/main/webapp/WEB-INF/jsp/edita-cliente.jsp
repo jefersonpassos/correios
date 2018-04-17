@@ -4,10 +4,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    /******ARRUMAR*******/
-   
-    //Como receber o <cliente> como parametro?
-    //passa o id como parametro
+    
 
 %>
 <!DOCTYPE html>
@@ -21,6 +18,7 @@
                     <div class="form-cliente">
                         <form action="${pageContext.request.contextPath}/update-cliente" method="post">
                             <div class="col s12 m12 l6">
+                                <input type="hidden" name="idCliente" value="${cliente.idCliente}">
                                 Nome Completo: <input type="text" name="nome" value="${cliente.nome}">
                                 CPF: <input type="text" name="cpf" value="${cliente.cpf}">
                             </div>
@@ -66,8 +64,9 @@
                                 </select>
                                 Cidade: <input type="text" name="cidade" value="${cliente.cidade}">    
                             </div>
+                          
                             <div class="col s12 m12 l6">
-                                <button type="submit">Cadastrar</button>
+                                <button type="submit">Editar</button>
                             </div>
 
                         </form>

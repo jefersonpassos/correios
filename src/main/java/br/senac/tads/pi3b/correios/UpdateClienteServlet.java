@@ -36,8 +36,10 @@ public class UpdateClienteServlet extends HttpServlet {
             String estado = req.getParameter("estado");
             String cep = req.getParameter("cep");
             String cidade = req.getParameter("cidade");
+            String idCliente = req.getParameter("idCliente");
+            int id = Integer.parseInt(idCliente);
 
-            Cliente cliente = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade, 0);
+            Cliente cliente = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade, id);
 
             DaoCliente.editar(cliente);
 
@@ -46,7 +48,7 @@ public class UpdateClienteServlet extends HttpServlet {
             PrintWriter out = resp.getWriter();
             out.println("<html>");
             out.println("<body>");
-            out.println("Cliente"+ cliente.getNome() + "atualizado");
+            out.println("Cliente " + cliente.getNome() + " atualizado");
             out.println("</body>");
             out.println("</html>");
 

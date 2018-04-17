@@ -141,26 +141,28 @@ public class DaoCliente {
 
         try (Connection conn = obterConexao();
                 PreparedStatement stmt = conn.prepareStatement(query)) {
+
             stmt.setInt(1, id);
 
-            try (ResultSet resultados = stmt.executeQuery()) {
-                while (resultados.next()) {
-                    String nome = resultados.getString("nomeCliente");
-                    String telefone = resultados.getString("telefone");
-                    String cpf = resultados.getString("cpf");
-                    String cep = resultados.getString("cep");
-                    String endereco = resultados.getString("endereco");
-                    String estado = resultados.getString("estado");
-                    String cidade = resultados.getString("cidade");
-                    String email = resultados.getString("email");
-                    Cliente c = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade, id);
-                    return c;
-                }
-            } catch (SQLException e) {
-
+            ResultSet resultados = stmt.executeQuery();
+            if (resultados.next()) {
+                String nome = resultados.getString("nomeCliente");
+                String telefone = resultados.getString("telefone");
+                String cpf = resultados.getString("cpf");
+                String cep = resultados.getString("cep");
+                String endereco = resultados.getString("endereco");
+                String estado = resultados.getString("estado");
+                String cidade = resultados.getString("cidade");
+                String email = resultados.getString("email");
+                Cliente c = new Cliente(nome, telefone, cpf, email, endereco, estado, cep, cidade, id);
+                return c;
             }
-            return null;
+
         }
 
+                return null;
     }
+    
+    
+    
 }
