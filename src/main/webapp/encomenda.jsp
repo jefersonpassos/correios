@@ -17,7 +17,7 @@
                     </a>
                 </div>
                 <div class ="box col s12 m6 l3">
-                    <a href="${pageContext.request.contextPath}/encomenda-cliente">
+                    <a href="${pageContext.request.contextPath}/busca-encomenda">
                         <div class="menu-encomenda">
                             <i class="fas fa-box-open"></i>
                             <span>Buscar Encomenda</span>
