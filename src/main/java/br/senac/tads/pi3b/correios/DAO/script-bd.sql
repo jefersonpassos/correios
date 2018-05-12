@@ -43,3 +43,15 @@ INSERT INTO cliente (nomeCliente, telefone, cpf, cep, endereco, estado, cidade, 
 VALUES ("tttttttt", "212121597", "38414121", "05689468", "rua ala", "sp", "sao paulo", "digo@gmail.com");
 
 SELECT * FROM cliente;
+
+create table usuario (
+    id int not null auto_increment,
+    nome varchar(100) not null,
+    senha varchar(300) not null,
+    email varchar(255) not null unique,
+    perfil varchar(50) not null,
+    primary key (id)
+);
+
+insert into usuario (nome, email, senha, perfil)
+values ('teste', 'teste@teste.com', '$2a$10$xVTCtBLE6.3mcJkdJYwItemHoaJc1C6Z/LPmKChSzPtVPNNyWGbEO', 'admin');

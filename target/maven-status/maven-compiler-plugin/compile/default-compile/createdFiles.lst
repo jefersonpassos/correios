@@ -1,0 +1,13 @@
+br\senac\tads\pi3b\correios\DAO\DaoCliente.class
+br\senac\tads\pi3b\correios\DeletaClienteServlet.class
+br\senac\tads\pi3b\correios\Cliente.class
+LoginServlet.class
+br\senac\tads\pi3b\correios\NovoClienteServlet.class
+br\senac\tads\pi3b\correios\Usuario.class
+usuarios\Funcionario.class
+br\senac\tads\pi3b\correios\EditarClienteServlets.class
+br\senac\tads\pi3b\correios\Login.class
+br\senac\tads\pi3b\correios\ClienteBuscaServlet.class
+br\senac\tads\pi3b\correios\DAO\DaoUsuario.class
+br\senac\tads\pi3b\correios\DAO\Conection.class
+br\senac\tads\pi3b\correios\UpdateClienteServlet.class

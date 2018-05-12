@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author rodri
  */
 public class Conection {
-    public Connection obterConexao() throws ClassNotFoundException, SQLException {
+    public static Connection obterConexao() throws ClassNotFoundException, SQLException {
 
         // 1A) Registrar driver JDBC
         Class.forName("com.mysql.jdbc.Driver");

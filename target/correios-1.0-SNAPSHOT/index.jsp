@@ -13,10 +13,10 @@
         <div class="container">
             <div class="row">		
                 <h1>Astec <span>Aqui sua encomenda chega</span>	</h1>
-                <form action="${pageContext.request.contextPath}" method="post">
+                <form action="${pageContext.request.contextPath}/login" method="post">
                     <input type="email" name="email">
                     <input type="password" name="senha">
-                    <button type="button">Login</button>
+                    <button type="submit">Login</button>
                 </form>
             </div>
         </div>
