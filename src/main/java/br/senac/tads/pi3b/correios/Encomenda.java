@@ -15,11 +15,11 @@ public class Encomenda {
     private int IdEncomenda;
     private Cliente cliente;
     private Destinatario destinatario;
-    private double valor;
     private double comprimento;
     private double altura;
     private double largura;
-    private double peso;
+    private double peso3;
+    private double valor;
 
     public int getIdEncomenda() {
         return IdEncomenda;
@@ -49,8 +49,8 @@ public class Encomenda {
         return valor;
     }
 
-    public void setValor(double comprimento, double altura, double largura) {
-        this.valor = (comprimento*altura*largura)/6.000;
+    public void setValor(double peso3) {
+        this.valor = peso3*2.2;
     }
 
     public double getComprimento() {
@@ -77,12 +77,12 @@ public class Encomenda {
         this.largura = largura;
     }
 
-    public double getPeso() {
-        return peso;
+    public double getPeso3() {
+        return peso3;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+    public void setPeso3(double comprimento, double altura, double largura) {
+        this.peso3 = (comprimento*altura*largura)/6.000;
     }
     
     
