@@ -448,6 +448,12 @@ readers do not read off random characters that represent icons */
 .fa-bars:before {
 	content: "\f0c9"; 
 }
+.fa-box-open:before {
+  content: "\f49e"; 
+}
+.fa-box:before {
+  content: "\f466"; 
+}
 
 
 /*font roboto*/
