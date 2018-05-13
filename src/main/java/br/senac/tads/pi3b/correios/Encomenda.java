@@ -12,8 +12,8 @@ package br.senac.tads.pi3b.correios;
 // calculo peso cubico (C x L x A)/6.000.
 
 public class Encomenda {
-    private int IdEncomenda;
-    private Cliente cliente;
+    private int Id;
+    private int IdCliente;
     private Destinatario destinatario;
     private double comprimento;
     private double altura;
@@ -21,20 +21,24 @@ public class Encomenda {
     private double peso3;
     private double valor;
 
-    public int getIdEncomenda() {
-        return IdEncomenda;
+    public Encomenda(int IdCliente, Destinatario destinatario, double comprimento, double altura, double largura){
+        
+    }
+    
+    public int getId() {
+        return Id;
     }
 
-    public void setIdEncomenda(int IdEncomenda) {
-        this.IdEncomenda = IdEncomenda;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public int getIdCliente() {
+        return IdCliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setCliente(int IdCliente) {
+        this.IdCliente = IdCliente;
     }
 
     public Destinatario getDestinatario() {

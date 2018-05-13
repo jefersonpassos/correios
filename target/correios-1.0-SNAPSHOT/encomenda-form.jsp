@@ -10,8 +10,7 @@
             <div class ="col s12 m12 l12">
                 <div class="form-cliente">
                     <form action="${pageContext.request.contextPath}/nova-encomenda" method="post">
-                        <div class="col s12 m12 l6">
-                            Nome Cliente: <input type="text" name="nome">
+                        <div class="col s12 m12 l12">
                             CPF Cliente: <input type="text" name="cpf">
                         </div>
                         <div class="col s12 m12 l6">
@@ -21,7 +20,7 @@
                         <div class="col s12 m12 l6">
                             CEP destinatário: <input type="text" name="cepd">
                             Estado destinatário: 
-                            <select name="estado">
+                            <select name="estadod">
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
                                 <option value="AP">Amapá</option>

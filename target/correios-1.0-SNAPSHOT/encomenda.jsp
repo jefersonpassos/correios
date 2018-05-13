@@ -12,7 +12,7 @@
                     <a href="${pageContext.request.contextPath}/encomenda-form.jsp">
                         <div class="menu-clientes">
                             <i class="fas fa-box"></i>
-                            <span>Novo Encomenda</span>
+                            <span>Nova Encomenda</span>
                         </div>
                     </a>
                 </div>

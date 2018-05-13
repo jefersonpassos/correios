@@ -5,8 +5,13 @@
  */
 package br.senac.tads.pi3b.correios;
 
+import br.senac.tads.pi3b.correios.DAO.DaoCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,24 +25,41 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "NovaEncomendaServlet", urlPatterns = {"/nova-encomenda"})
 public class NovaEncomendaServlet extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+
+        int idCliente = -1;
+        String cpf = req.getParameter("cpf");
+         try {
+             //buscar criente no banco return int id
+             idCliente = DaoCliente.buscarCpf(cpf);
+         } catch (ClassNotFoundException ex) {
+             Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (SQLException ex) {
+             Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+         }
         
+        String nomed = req.getParameter("nomed");
+        String enderecod = req.getParameter("enderecod");
+        String cepd = req.getParameter("cepd");
+        String estadod = req.getParameter("estadod");
+        String cidaded = req.getParameter("cidaded");
+        //add objeto destinatario
+        Destinatario destinatario = new Destinatario(nomed, enderecod,  cepd, cidaded, estadod);
+       
+        String comprimentoS = req.getParameter("comprimento");
+        String alturaS = req.getParameter("altura");
+        String larguraS = req.getParameter("largura");
+        
+        double comprimento = Double.parseDouble(comprimentoS);
+        double altura = Double.parseDouble(alturaS);
+        double largura = Double.parseDouble(larguraS);
+        
+        Encomenda encomenda = new Encomenda(idCliente, destinatario, comprimento, largura, altura);
+            req.setAttribute("encomenda", encomenda);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/nova-encomenda.jsp");
+            dispatcher.forward(req, resp);
     }
-
-   
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
     
 }

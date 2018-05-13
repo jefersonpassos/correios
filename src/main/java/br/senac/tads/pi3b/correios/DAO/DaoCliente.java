@@ -90,7 +90,29 @@ public class DaoCliente {
         return lista;
 
     }
+    
+    public static int buscarCpf(String Cpf) throws ClassNotFoundException, SQLException {
 
+        String query = "SELECT * FROM correios.cliente where idCliente = ?;";
+        int id = -1;
+
+        try (Connection conn = obterConexao();
+                PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setInt(1, id);
+            try (ResultSet resultados = stmt.executeQuery()) {
+
+                while (resultados.next()) {
+                    id = resultados.getInt("idCliente");
+                }
+            }
+        } catch (SQLException e) {
+
+        }
+
+        return id;
+    }
+
+    
     public static void deletar(int id) throws ClassNotFoundException, SQLException {
         String query = "delete from cliente where idCliente = ?;";
         try (Connection conn = obterConexao()) {

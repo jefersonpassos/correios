@@ -16,6 +16,14 @@ public class Destinatario {
     private String cidade;
     private String estado;
 
+    public Destinatario(String nome, String endereco, String cep, String cidade, String estado){
+        this.nome = nome;
+        this.endereco = endereco;
+        this.estado = estado;
+        this.cep = cep;
+        this.cidade = cidade;
+    }
+    
     public String getNome() {
         return nome;
     }
