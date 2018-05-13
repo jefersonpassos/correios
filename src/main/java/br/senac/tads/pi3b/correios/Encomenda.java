@@ -5,6 +5,8 @@
  */
 package br.senac.tads.pi3b.correios;
 
+import java.util.Date;
+
 /**
  *
  * @author rodrigo
@@ -20,6 +22,8 @@ public class Encomenda {
     private double largura;
     private double peso3;
     private double valor;
+    private Date dataPostagem;
+    private Date dataEntrega;
     //satus da encoemnda entrega/caminho/postado
     private String posicao;
 
@@ -32,6 +36,24 @@ public class Encomenda {
         setPeso3(comprimento, altura, largura);
         setValor(peso3);
     }
+
+    public Date getDataPostagem() {
+        return dataPostagem;
+    }
+
+    public void setDataPostagem(Date dataPostagem) {
+        this.dataPostagem = dataPostagem;
+    }
+
+    public Date getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(Date dataEntrega) {
+        this.dataEntrega = dataEntrega;
+    }
+    
+    
     
     public String getPosicao(){
         return posicao;

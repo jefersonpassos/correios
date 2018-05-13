@@ -33,6 +33,10 @@ create table encomenda(
     foreign key(idRemetente) references cliente(idCliente)
 );
 
+insert  into encomenda(idRemetente,destinatario,endereco,cidade,estado,cep,altura,largura,comprimento,peso,valor,posicao)
+values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+
 create table historico(
 dataRegistro date not null,
 idHistorico varchar(255) not null,
