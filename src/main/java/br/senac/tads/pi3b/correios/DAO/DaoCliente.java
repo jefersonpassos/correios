@@ -32,9 +32,9 @@ public class DaoCliente {
 
     public static void incluir(Cliente cliente) throws ClassNotFoundException, SQLException {
 
-        String query = "insert into cliente(nomeCliente, telefone, cpf, cep, endereco,"
-                + "estado, cidade, email)"
-                + "VALUES (?, ?, ?, ? ,? ,? ,? ,?)";
+        String query = "insert  into encomenda(idRemetente,destinatario,endereco,cidade,"
+                + "estado,cep,altura,largura,comprimento,peso,valor,posicao)"
+                + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try (Connection conn = obterConexao()) {
             conn.setAutoCommit(false);
 
@@ -91,14 +91,14 @@ public class DaoCliente {
 
     }
     
-    public static int buscarCpf(String Cpf) throws ClassNotFoundException, SQLException {
+    public static int buscarCpf(String cpf) throws ClassNotFoundException, SQLException {
 
-        String query = "SELECT * FROM correios.cliente where idCliente = ?;";
+        String query = "SELECT * FROM correios.cliente where cpf = ?;";
         int id = -1;
 
         try (Connection conn = obterConexao();
                 PreparedStatement stmt = conn.prepareStatement(query)) {
-                stmt.setInt(1, id);
+                stmt.setString(1, cpf);
             try (ResultSet resultados = stmt.executeQuery()) {
 
                 while (resultados.next()) {

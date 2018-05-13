@@ -6,6 +6,7 @@
 package br.senac.tads.pi3b.correios;
 
 import br.senac.tads.pi3b.correios.DAO.DaoCliente;
+import br.senac.tads.pi3b.correios.DAO.DaoEncomenda;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -29,7 +30,7 @@ public class NovaEncomendaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        int idCliente = -1;
+        int idCliente=0;
         String cpf = req.getParameter("cpf");
          try {
              //buscar criente no banco return int id
@@ -51,12 +52,21 @@ public class NovaEncomendaServlet extends HttpServlet {
         String comprimentoS = req.getParameter("comprimento");
         String alturaS = req.getParameter("altura");
         String larguraS = req.getParameter("largura");
-        
+
         double comprimento = Double.parseDouble(comprimentoS);
         double altura = Double.parseDouble(alturaS);
         double largura = Double.parseDouble(larguraS);
         
         Encomenda encomenda = new Encomenda(idCliente, destinatario, comprimento, largura, altura);
+        
+        try {
+            DaoEncomenda.incluir(encomenda);
+         } catch (ClassNotFoundException ex) {
+             Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (SQLException ex) {
+             Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
             req.setAttribute("encomenda", encomenda);
             RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/nova-encomenda.jsp");
             dispatcher.forward(req, resp);

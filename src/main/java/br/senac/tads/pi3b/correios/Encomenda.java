@@ -20,9 +20,25 @@ public class Encomenda {
     private double largura;
     private double peso3;
     private double valor;
+    //satus da encoemnda entrega/caminho/postado
+    private String posicao;
 
     public Encomenda(int IdCliente, Destinatario destinatario, double comprimento, double altura, double largura){
-        
+        this.IdCliente = IdCliente;
+        this.destinatario = destinatario;
+        this.comprimento = comprimento;
+        this.altura = altura;
+        this.largura = largura;
+        setPeso3(comprimento, altura, largura);
+        setValor(peso3);
+    }
+    
+    public String getPosicao(){
+        return posicao;
+    }
+    
+    public void setPosicao(String posicao){
+        this.posicao = posicao;
     }
     
     public int getId() {
@@ -53,7 +69,7 @@ public class Encomenda {
         return valor;
     }
 
-    public void setValor(double peso3) {
+    private void setValor(double peso3) {
         this.valor = peso3*2.2;
     }
 
@@ -85,7 +101,7 @@ public class Encomenda {
         return peso3;
     }
 
-    public void setPeso3(double comprimento, double altura, double largura) {
+    private void setPeso3(double comprimento, double altura, double largura) {
         this.peso3 = (comprimento*altura*largura)/6.000;
     }
     

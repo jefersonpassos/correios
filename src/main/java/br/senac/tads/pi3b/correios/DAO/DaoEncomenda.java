@@ -19,32 +19,37 @@ import java.sql.SQLException;
 public class DaoEncomenda {
     
     
-    public static boolean buscarPorEmail(Encomenda encomenda) throws ClassNotFoundException, SQLException{
+    public static void incluir(Encomenda encomenda) throws ClassNotFoundException, SQLException{
         
-        String query = "select * from usuario where email = ? ";
+        String query = "insert  into encomenda(idRemetente,destinatario,endereco,cidade,"
+                + "estado,cep,altura,largura,comprimento,peso,valor,posicao)"
+                + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-        try (Connection conn = Conection.obterConexao();
-                PreparedStatement stmt = conn.prepareStatement(query)) {
-                stmt.setString(1, email);
-                
-            try (ResultSet resultados = stmt.executeQuery()) {
-                while(resultados.next()){   
-                    int id = resultados.getInt("id");
-                    String senha = resultados.getString("senha");
-                    String nome = resultados.getString("nome");
-                    String perfil = resultados.getString("perfil");
-                    
-                    usuario.setId(id);
-                    usuario.setNome(nome);
-                    usuario.setEmail(email);
-                    usuario.setSenhaHash(senha);
-                    usuario.setPerfil(perfil);
-                }           
+        try (Connection conn = Conection.obterConexao()){
+                try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setInt(1, encomenda.getIdCliente());
+                stmt.setString(2, encomenda.getDestinatario().getNome());
+                stmt.setString(3, encomenda.getDestinatario().getEndereco());
+                stmt.setString(4, encomenda.getDestinatario().getCidade());
+                stmt.setString(5, encomenda.getDestinatario().getEstado());
+                stmt.setString(6, encomenda.getDestinatario().getCep());
+                stmt.setDouble(7, encomenda.getAltura());
+                stmt.setDouble(8, encomenda.getLargura());
+                stmt.setDouble(9, encomenda.getComprimento());
+                stmt.setDouble(10, encomenda.getPeso3());
+                stmt.setDouble(11, encomenda.getValor());
+                stmt.setString(12, "postado");
+                stmt.executeUpdate();
+                conn.commit();
+            } catch (SQLException e) {
+                // Volta pra situação onde o autocommit foi definido como false
+                conn.rollback();
+                throw e;
             }
+    
         } catch (SQLException e) {
             System.out.print("@@@@@@@@@@@@@@@@@erro@@@@@@@@@@@@@@@@@@@@");
-        }   
-        return usuario;    
+        }     
     }
     
 }

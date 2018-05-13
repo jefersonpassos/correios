@@ -15,20 +15,22 @@ email varchar(255),
 primary key(idCliente)
 );
 
-create table pacote(
-id int not null auto_increment,
-idRemetente int not null,
-valor float not null,
-peso float not null,
-altura float not null,
-largura float not null,
-destinatario varchar(255) not null,
-endereco varchar(255) not null,
-cidade varchar(255) not null,
-estado varchar(255),
-status varchar(255) not null,
-primary key(id),
-foreign key(idRemetente) references cliente(idCliente)
+create table encomenda(
+    id int not null auto_increment,
+    idRemetente int not null,
+    destinatario varchar(255) not null,
+    endereco varchar(255) not null,
+    cidade varchar(255) not null,
+    estado varchar(255) not null,
+    cep varchar(9) not null,
+    altura double not null,
+    largura double not null,
+    comprimento double not null,
+    peso double not null,
+    valor double not null,
+    posicao varchar(50) not null,
+    primary key(id),
+    foreign key(idRemetente) references cliente(idCliente)
 );
 
 create table historico(
