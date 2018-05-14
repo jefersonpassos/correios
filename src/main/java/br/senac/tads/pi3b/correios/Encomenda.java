@@ -5,6 +5,8 @@
  */
 package br.senac.tads.pi3b.correios;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -36,9 +38,23 @@ public class Encomenda {
         setPeso3(comprimento, altura, largura);
         setValor(peso3);
     }
+    
+    private Date inicializarData() {
+        //Define um formatador de datas
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+
+        //Define a data inicial de check-in como a data de hoje                
+
+        Date data = new Date();
+        Calendar calendario = Calendar.getInstance();
+        calendario.setTime(data);
+        data = calendario.getTime();
+        
+        return data;
+    }
 
     public Date getDataPostagem() {
-        return dataPostagem;
+        return dataPostagem=inicializarData();
     }
 
     public void setDataPostagem(Date dataPostagem) {

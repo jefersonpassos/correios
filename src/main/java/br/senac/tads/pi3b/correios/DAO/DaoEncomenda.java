@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 /**
  *
@@ -22,7 +23,7 @@ public class DaoEncomenda {
     public static void incluir(Encomenda encomenda) throws ClassNotFoundException, SQLException{
         
         String query = "insert  into encomenda(idRemetente,destinatario,endereco,cidade,"
-                + "estado,cep,altura,largura,comprimento,peso,valor,posicao)"
+                + "estado,cep,altura,largura,comprimento,peso,valor,posicao,data_postagem)"
                 + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try (Connection conn = Conection.obterConexao()){
@@ -39,6 +40,9 @@ public class DaoEncomenda {
                 stmt.setDouble(10, encomenda.getPeso3());
                 stmt.setDouble(11, encomenda.getValor());
                 stmt.setString(12, "postado");
+                //coversao data no "formato sql"
+                Timestamp t = new Timestamp(encomenda.getDataPostagem().getTime());
+                stmt.setTimestamp(13, t);
                 stmt.executeUpdate();
                 conn.commit();
             } catch (SQLException e) {
