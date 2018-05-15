@@ -8,7 +8,8 @@
         <div class="container">
             <div class="row">
                 <div class ="col s12 m12 l12 novo-cliente">
-                    <h1>Encomenda criado com sucesso destino ${encomenda.getDestinatario().getEndereco()}</h1>
+                    <h1>Codigo de Rastreio${encomenda.getRastreio()}</h1>
+                    <h2>Encomenda criado com sucesso destino ${encomenda.getDestinatario().getEndereco()}</h2>
                 </div>
             </div>
         </div>

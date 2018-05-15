@@ -35,41 +35,43 @@ public class NovaEncomendaServlet extends HttpServlet {
          try {
              //buscar criente no banco return int id
              idCliente = DaoCliente.buscarCpf(cpf);
-         } catch (ClassNotFoundException ex) {
-             Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
-         } catch (SQLException ex) {
-             Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
-         }
+         
         
-        String nomed = req.getParameter("nomed");
-        String enderecod = req.getParameter("enderecod");
-        String cepd = req.getParameter("cepd");
-        String estadod = req.getParameter("estadod");
-        String cidaded = req.getParameter("cidaded");
-        //add objeto destinatario
-        Destinatario destinatario = new Destinatario(nomed, enderecod,  cepd, cidaded, estadod);
-       
-        String comprimentoS = req.getParameter("comprimento");
-        String alturaS = req.getParameter("altura");
-        String larguraS = req.getParameter("largura");
+            String nomed = req.getParameter("nomed");
+            String enderecod = req.getParameter("enderecod");
+            String cepd = req.getParameter("cepd");
+            String estadod = req.getParameter("estadod");
+            String cidaded = req.getParameter("cidaded");
+            //add objeto destinatario
+            Destinatario destinatario = new Destinatario(nomed, enderecod,  cepd, cidaded, estadod);
 
-        double comprimento = Double.parseDouble(comprimentoS);
-        double altura = Double.parseDouble(alturaS);
-        double largura = Double.parseDouble(larguraS);
-        
-        Encomenda encomenda = new Encomenda(idCliente, destinatario, comprimento, largura, altura);
-        
-        try {
-            DaoEncomenda.incluir(encomenda);
-         } catch (ClassNotFoundException ex) {
-             Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
-         } catch (SQLException ex) {
-             Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        
-            req.setAttribute("encomenda", encomenda);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/nova-encomenda.jsp");
-            dispatcher.forward(req, resp);
+            String comprimentoS = req.getParameter("comprimento");
+            String alturaS = req.getParameter("altura");
+            String larguraS = req.getParameter("largura");
+
+            double comprimento = Double.parseDouble(comprimentoS);
+            double altura = Double.parseDouble(alturaS);
+            double largura = Double.parseDouble(larguraS);
+
+            Encomenda encomenda = new Encomenda(idCliente, destinatario, comprimento, largura, altura);
+
+            try {
+                DaoEncomenda.incluir(encomenda, cpf);
+             } catch (ClassNotFoundException ex) {
+                 Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+             } catch (SQLException ex) {
+                 Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+             }
+
+                req.setAttribute("encomenda", encomenda);
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/nova-encomenda.jsp");
+                dispatcher.forward(req, resp);
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

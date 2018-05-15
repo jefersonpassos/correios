@@ -32,9 +32,9 @@ public class DaoCliente {
 
     public static void incluir(Cliente cliente) throws ClassNotFoundException, SQLException {
 
-        String query = "insert  into encomenda(idRemetente,destinatario,endereco,cidade,"
-                + "estado,cep,altura,largura,comprimento,peso,valor,posicao)"
-                + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String query = "insert into correios.cliente(nomeCliente, telefone, cpf, cep, endereco,"
+                + "estado, cidade, email)"
+                + "VALUES (?, ?, ?, ? ,? ,? ,? ,?)";
         try (Connection conn = obterConexao()) {
             conn.setAutoCommit(false);
 
@@ -47,6 +47,7 @@ public class DaoCliente {
                 stmt.setString(6, cliente.getEstado());
                 stmt.setString(7, cliente.getCidade());
                 stmt.setString(8, cliente.getEmail());
+                stmt.setString(9, "0");
                 stmt.executeUpdate();
                 conn.commit();
             } catch (SQLException e) {

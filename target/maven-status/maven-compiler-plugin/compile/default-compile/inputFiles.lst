@@ -1,7 +1,10 @@
 /home/rodrigo/NetBeansProjects/correios/src/main/java/br/senac/tads/pi3b/correios/ClienteBuscaServlet.java
 /home/rodrigo/NetBeansProjects/correios/src/main/java/br/senac/tads/pi3b/correios/UpdateClienteServlet.java
+/home/rodrigo/NetBeansProjects/correios/src/main/java/br/senac/tads/pi3b/correios/EncomendaBuscaServlet.java
 /home/rodrigo/NetBeansProjects/correios/src/main/java/br/senac/tads/pi3b/correios/Encomenda.java
+/home/rodrigo/NetBeansProjects/correios/src/main/java/br/senac/tads/pi3b/correios/EncomendaDeletaServlet.java
 /home/rodrigo/NetBeansProjects/correios/src/main/java/Usuario.java
+/home/rodrigo/NetBeansProjects/correios/src/main/java/br/senac/tads/pi3b/correios/EncomendaEditarServlet.java
 /home/rodrigo/NetBeansProjects/correios/src/main/java/br/senac/tads/pi3b/correios/DeletaClienteServlet.java
 /home/rodrigo/NetBeansProjects/correios/src/main/java/br/senac/tads/pi3b/correios/DAO/DaoCliente.java
 /home/rodrigo/NetBeansProjects/correios/src/main/java/br/senac/tads/pi3b/correios/NovoClienteServlet.java
