@@ -5,6 +5,8 @@
  */
 package br.senac.tads.pi3b.correios;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -13,7 +15,7 @@ import java.util.Date;
  */
 // calculo peso cubico (C x L x A)/6.000.
 
-public class Encomenda {
+public final class Encomenda {
     private int Id;
     private int IdCliente;
     private Destinatario destinatario;
@@ -26,6 +28,7 @@ public class Encomenda {
     private Date dataEntrega;
     //satus da encoemnda entrega/caminho/postado
     private String posicao;
+    private String rastreio;
 
     public Encomenda(int IdCliente, Destinatario destinatario, double comprimento, double altura, double largura){
         this.IdCliente = IdCliente;
@@ -36,6 +39,23 @@ public class Encomenda {
         setPeso3(comprimento, altura, largura);
         setValor(peso3);
     }
+    
+    public Date inicializarData() {
+        //Define um formatador de datas
+        //SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");           
+        Date data = new Date();
+        Calendar calendario = Calendar.getInstance();
+        calendario.setTime(data);
+        data = calendario.getTime();
+        return data;
+    }
+    
+    private String inicializarRastreio(String cpf, Date dt){
+        String rast = cpf+dt.toString();
+        return rast;
+    }
+    
+    
 
     public Date getDataPostagem() {
         return dataPostagem;
@@ -50,10 +70,16 @@ public class Encomenda {
     }
 
     public void setDataEntrega(Date dataEntrega) {
-        this.dataEntrega = dataEntrega;
+        this.dataEntrega=dataEntrega;
     }
     
+    public String getRastreio(){
+        return rastreio;
+    }
     
+    public void setRastreio(String rastreio){
+        this.rastreio = rastreio;
+    }
     
     public String getPosicao(){
         return posicao;
@@ -91,8 +117,8 @@ public class Encomenda {
         return valor;
     }
 
-    private void setValor(double peso3) {
-        this.valor = peso3*2.2;
+    public void setValor(double peso3) {
+        this.valor = peso3*2.75;
     }
 
     public double getComprimento() {
@@ -123,7 +149,7 @@ public class Encomenda {
         return peso3;
     }
 
-    private void setPeso3(double comprimento, double altura, double largura) {
+    public void setPeso3(double comprimento, double altura, double largura) {
         this.peso3 = (comprimento*altura*largura)/6.000;
     }
     
