@@ -21,10 +21,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author rodrigo
  */
-public class EncomendaEditarServlet {
+@WebServlet(urlPatterns = {"/editar-encomenda"})
+public class EncomendaEditarServlet extends HttpServlet {
     
-    @WebServlet(urlPatterns = {"/editar-encomenda"})
-public class EncomendaDeletaServlet extends HttpServlet {
+        
 @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -43,4 +43,4 @@ public class EncomendaDeletaServlet extends HttpServlet {
             }
         }  
     }
-}
+

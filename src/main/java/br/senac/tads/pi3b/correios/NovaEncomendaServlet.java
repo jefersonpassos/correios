@@ -56,17 +56,20 @@ public class NovaEncomendaServlet extends HttpServlet {
             Encomenda encomenda = new Encomenda(idCliente, destinatario, comprimento, largura, altura);
 
             try {
-                DaoEncomenda.incluir(encomenda, cpf);
+                
+                String rastreio=DaoEncomenda.incluir(encomenda, cpf);
+                
+                req.setAttribute("rastreio", rastreio);
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/nova-encomenda.jsp");
+                dispatcher.forward(req, resp);
+            
              } catch (ClassNotFoundException ex) {
                  Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
              } catch (SQLException ex) {
                  Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
              }
 
-                req.setAttribute("encomenda", encomenda);
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/nova-encomenda.jsp");
-                dispatcher.forward(req, resp);
-            
+                
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NovaEncomendaServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

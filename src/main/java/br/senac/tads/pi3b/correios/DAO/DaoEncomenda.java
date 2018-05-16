@@ -27,12 +27,14 @@ import java.util.List;
 public class DaoEncomenda {
     
     
-    public static void incluir(Encomenda encomenda, String cpf) throws ClassNotFoundException, SQLException{
+    public static String incluir(Encomenda encomenda, String cpf) throws ClassNotFoundException, SQLException{
         
         String query = "insert  into encomenda(idRemetente, destinatario, endereco, cidade,"
                 + "estado, cep, altura, largura, comprimento, peso, valor, posicao, data_postagem, rastreio)"
                 + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
+        String rastreio ="";
+        
         try (Connection conn = Conection.obterConexao()){
                 try (PreparedStatement stmt = conn.prepareStatement(query)) {
                 stmt.setInt(1, encomenda.getIdCliente());
@@ -50,7 +52,7 @@ public class DaoEncomenda {
                 //coversao data no "formato sql"
                 Timestamp t = new Timestamp(encomenda.inicializarData().getTime());
                 stmt.setTimestamp(13, t);
-                String rastreio = t.toString()+cpf;
+                rastreio = t.toString()+cpf;
                 rastreio=rastreio.replace("-", "");
                 rastreio=rastreio.replace(":", "");
                 rastreio=rastreio.replace(".", "");
@@ -67,6 +69,7 @@ public class DaoEncomenda {
         } catch (SQLException e) {
             System.out.print("@@@@@@@@@@@@@@@@@erro@@@@@@@@@@@@@@@@@@@@");
         }     
+        return rastreio;
     }
     
     public static List<Encomenda> buscarRastreio(String rastreio) throws ClassNotFoundException, SQLException {

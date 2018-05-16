@@ -1,7 +1,6 @@
 br/senac/tads/pi3b/correios/Destinatario.class
 br/senac/tads/pi3b/correios/DAO/Conection.class
 LoginServlet.class
-br/senac/tads/pi3b/correios/EncomendaEditarServlet$EncomendaDeletaServlet.class
 br/senac/tads/pi3b/correios/DAO/DaoUsuario.class
 br/senac/tads/pi3b/correios/DAO/DaoCliente.class
 br/senac/tads/pi3b/correios/DAO/DaoEncomenda.class
