@@ -16,25 +16,29 @@ primary key(idCliente)
 );
 
 create table encomenda(
-    id int not null auto_increment,
-    idRemetente int not null,
-    destinatario varchar(255) not null,
-    endereco varchar(255) not null,
-    cidade varchar(255) not null,
-    estado varchar(255) not null,
-    cep varchar(9) not null,
-    altura double not null,
-    largura double not null,
-    comprimento double not null,
-    peso double not null,
-    valor double not null,
-    posicao varchar(50) not null,
-    primary key(id),
-    foreign key(idRemetente) references cliente(idCliente)
+id int not null auto_increment,
+idRemetente int not null,
+destinatario varchar(255) not null,
+endereco varchar(255) not null,
+cidade varchar(255) not null,
+estado varchar(255) not null,
+cep varchar(9) not null,
+altura double not null,
+largura double not null,
+comprimento double not null,
+peso double not null,
+valor double not null,
+posicao varchar(50) not null,
+data_postagem timestamp not null,
+data_entrega timestamp,
+rastreio varchar(150),
+primary key(id),
+foreign key(idRemetente) references cliente(idCliente)
 );
 
 insert  into encomenda(idRemetente,destinatario,endereco,cidade,estado,cep,altura,largura,comprimento,peso,valor,posicao)
 values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
 
 
 create table historico(
