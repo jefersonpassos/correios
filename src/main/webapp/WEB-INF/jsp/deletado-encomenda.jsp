@@ -14,11 +14,12 @@
         <div class="container">
             <div class="row">
                 <div class ="col s12 m12 l12 resultado-cliente">
- 
+
                     <h3>Encomenda deletada${id}</h3>
 
                 </div>
             </div>
         </div>
+        <%@include  file="../../include/footer.jsp" %>       
     </body>
 </html>

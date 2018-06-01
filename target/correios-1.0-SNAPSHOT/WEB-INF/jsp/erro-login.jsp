@@ -12,6 +12,7 @@
         <title>Error page</title>
     </head>
     <body>
-        <h1>Voce é uma bosta e nao consegue logar!!</h1>
+        <h1>Senha ou email Invalido!</h1>
+        <%@include  file="../../include/footer.jsp" %>         
     </body>
 </html>

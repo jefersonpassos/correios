@@ -4,7 +4,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    
+
 
 %>
 <!DOCTYPE html>
@@ -64,7 +64,7 @@
                                 </select>
                                 Cidade: <input type="text" name="cidade" value="${cliente.cidade}">    
                             </div>
-                          
+
                             <div class="col s12 m12 l6">
                                 <button type="submit">Editar</button>
                             </div>
@@ -74,5 +74,6 @@
                 </div>
             </div>
         </div>
+        <%@include  file="../../include/footer.jsp" %>         
     </body>
 </html>

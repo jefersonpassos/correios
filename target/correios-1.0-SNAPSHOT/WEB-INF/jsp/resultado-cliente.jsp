@@ -1,4 +1,3 @@
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="br.senac.tads.pi3b.correios.Cliente"%>
@@ -27,5 +26,6 @@
                 </div>
             </div>
         </div>
+        <%@include  file="../../include/footer.jsp" %>   
     </body>
 </html>

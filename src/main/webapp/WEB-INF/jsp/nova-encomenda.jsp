@@ -13,5 +13,6 @@
                 </div>
             </div>
         </div>
+        <%@include  file="../../include/footer.jsp" %>   D   
     </body>
 </html>

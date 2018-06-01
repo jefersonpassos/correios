@@ -47,7 +47,6 @@ public class DaoCliente {
                 stmt.setString(6, cliente.getEstado());
                 stmt.setString(7, cliente.getCidade());
                 stmt.setString(8, cliente.getEmail());
-                stmt.setString(9, "0");
                 stmt.executeUpdate();
                 conn.commit();
             } catch (SQLException e) {

@@ -60,6 +60,7 @@ create table usuario (
     senha varchar(300) not null,
     email varchar(255) not null unique,
     perfil varchar(50) not null,
+    filial varchar(50) not null,
     primary key (id)
 );
 
