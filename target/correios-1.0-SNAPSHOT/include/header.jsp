@@ -16,9 +16,15 @@
             <p class="p-white">${sessionScope.usuario.getNome()}</p>
             <a href="${pageContext.request.contextPath}/logout">Logout</a>
             <!--
-                Usuario logado
-                Logout
                 novo usuario (caso for admin)
+                < %
+                Usuario usuario = (Usuario)session.getAttribute("usuario");
+                if (usuario.getPerfil().equals("admin")) {
+                %>
+                    <a href="${pageContext.request.contextPath}/novo-usuario.jsp">Novo usuário</a>
+                < %
+                }
+                %>
             -->
             <a href="${pageContext.request.contextPath}/clientes.jsp">Cliente</a>
             <a href="${pageContext.request.contextPath}/encomenda.jsp">Encomenda</a>
