@@ -12,6 +12,9 @@
         </ul>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
             <h3>Menu</h3>
+            <p>Bem-vindo</p>
+            <p>${sessionScope.usuario.getNome()}</p>
+            <a href="${pageContext.request.contextPath}/logout">Logout</a>
             <!--
                 Usuario logado
                 Logout

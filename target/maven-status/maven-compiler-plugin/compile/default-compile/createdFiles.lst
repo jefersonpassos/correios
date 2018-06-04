@@ -1,3 +1,4 @@
+br\senac\tads\pi3b\correios\LogoutServlet.class
 br\senac\tads\pi3b\correios\DAO\DaoCliente.class
 br\senac\tads\pi3b\correios\DeletaClienteServlet.class
 br\senac\tads\pi3b\correios\EncomendaBuscaServlet.class
