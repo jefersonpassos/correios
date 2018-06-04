@@ -40,12 +40,20 @@ public class GerarRelatorioServlet extends HttpServlet {
 
         String dataI = req.getParameter("dataInicial");
         String dataF = req.getParameter("dataFinal");
+        
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        //SimpleDateFormat formato2 = new SimpleDateFormat("MM-dd-yyyy");
+        
         out.println(dataI);
         out.println(dataF);
+        
         try {
             Date dataInicial = formato.parse(dataI);
             Date dataFinal = formato.parse(dataF);
+            
+            
+            //Date dataInicial = formato2.parse(dataI);
+            //Date dataFinal = formato2.parse(dataF);
 
             lista = DaoRelatorio.gerarRelatorio(dataInicial, dataFinal);
 

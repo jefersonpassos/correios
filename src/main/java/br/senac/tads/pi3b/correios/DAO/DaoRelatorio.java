@@ -28,20 +28,20 @@ public class DaoRelatorio {
 
     public static List<Encomenda> gerarRelatorio(Date dataInicial, Date dataFinal) throws ClassNotFoundException, SQLException {
 
-        //String query = "SELECT * FROM correios.encomenda WHERE data_postagem BETWEEN ('?') AND ('?');";
-        String query = "SELECT * FROM correios.encomenda WHERE data_postagem BETWEEN ('2018-06-01 00:00:00') AND ('2018-06-18 00:00:00');";
+        String query = "SELECT * FROM correios.encomenda WHERE data_postagem BETWEEN ? AND ?;";
+        //String query = "SELECT * FROM correios.encomenda WHERE data_postagem BETWEEN ('2018-06-01 00:00:00') AND ('2018-06-18 00:00:00');";
 
         List<Encomenda> lista = new ArrayList<Encomenda>();
-        java.sql.Date dataI = new java.sql.Date(dataInicial.getTime());
-        java.sql.Date dataF = new java.sql.Date(dataFinal.getTime());
+        //java.sql.Date dataI = new java.sql.Date(dataInicial.getTime());
+        //java.sql.Date dataF = new java.sql.Date(dataFinal.getTime());
 
         try (Connection conn = Conection.obterConexao()) {
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
 
-                //Timestamp di = new Timestamp(dataInicial.getTime());
-                //Timestamp df = new Timestamp(dataFinal.getTime());
-                //stmt.setTimestamp(1, di);
-                //stmt.setTimestamp(2, df);
+                java.sql.Timestamp di = new Timestamp(dataInicial.getTime());
+                java.sql.Timestamp df = new Timestamp(dataFinal.getTime());
+                stmt.setTimestamp(1, di);
+                stmt.setTimestamp(2, df);
                 //stmt.setDate(1, dataI);
                 //stmt.setDate(2, dataF);
                 try (ResultSet resultados = stmt.executeQuery()) {

@@ -865,3 +865,9 @@ header .main button {background: none;border: none;}
         left: 190px;
     }
 }
+/*Menu side*/
+
+.resultado-cliente {
+  background: #fff9;
+  border-radius: 4px;
+}
