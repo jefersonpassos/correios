@@ -35,7 +35,6 @@ public class GerarRelatorioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
         List<Encomenda> lista = new ArrayList<Encomenda>();
 
         String dataI = req.getParameter("dataInicial");
@@ -43,10 +42,7 @@ public class GerarRelatorioServlet extends HttpServlet {
         
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         //SimpleDateFormat formato2 = new SimpleDateFormat("MM-dd-yyyy");
-        
-        out.println(dataI);
-        out.println(dataF);
-        
+         
         try {
             Date dataInicial = formato.parse(dataI);
             Date dataFinal = formato.parse(dataF);
@@ -56,14 +52,6 @@ public class GerarRelatorioServlet extends HttpServlet {
             //Date dataFinal = formato2.parse(dataF);
 
             lista = DaoRelatorio.gerarRelatorio(dataInicial, dataFinal);
-
-            out.println("<html>");
-            out.println("<body>");
-            out.println("ola mundo");
-            out.println(dataInicial);
-            out.println(dataFinal);
-            out.println("</body>");
-            out.println("</html>");
 
             req.setAttribute("lista", lista);
             RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/relatorios.jsp");

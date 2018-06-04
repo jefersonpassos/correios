@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <%@include  file="../../include/head.jsp" %>
-    <body id="bg-home">
+    <body id="bg-home" class="cbp-spmenu-push">
         <%@include  file="../../include/header.jsp" %>
         <div class="container">
             <div class="row">
