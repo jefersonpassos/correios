@@ -12,6 +12,11 @@
         </ul>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
             <h3>Menu</h3>
+            <!--
+                Usuario logado
+                Logout
+                novo usuario (caso for admin)
+            -->
             <a href="${pageContext.request.contextPath}/clientes.jsp">Cliente</a>
             <a href="${pageContext.request.contextPath}/encomenda.jsp">Encomenda</a>
             <a href="${pageContext.request.contextPath}/rastreio.jsp">Rastreio</a>

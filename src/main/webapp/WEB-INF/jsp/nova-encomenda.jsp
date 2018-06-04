@@ -1,4 +1,4 @@
-
+<%@page import="br.senac.tads.pi3b.correios.Encomenda"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,12 +7,12 @@
         <%@include  file="../../include/header.jsp" %>
         <div class="container">
             <div class="row">
-                <div class ="col s12 m12 l12 novo-cliente">
-                    <h1>Codigo de Rastreio${rastreio}</h1>
-                    <h2>Encomenda criado com sucesso destino ${encomenda.getDestinatario().getEndereco()}</h2>
+                <div class ="col s12 m12 l12 resultado">
+                    <h3>Codigo de Rastreio: ${rastreio}</h3>
+                    <h4>Encomenda criado com sucesso destino: ${encomenda.getDestinatario().getEndereco()}</h4>
                 </div>
             </div>
         </div>
-        <%@include  file="../../include/footer.jsp" %>   D   
+        <%@include  file="../../include/footer.jsp" %>
     </body>
 </html>

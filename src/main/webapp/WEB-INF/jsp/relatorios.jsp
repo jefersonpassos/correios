@@ -16,7 +16,6 @@
                 <div class ="col s12 m12 l12 resultado-cliente">
                     <table>   
                         <c:forEach var="e" items="${lista}">
-                            <h3>Codigo Rastreio ${e.getRastreio()}</h3>
                             <tr>
                                 <td>Destinatario nome: ${e.getDestinatario().getNome()}</td>
                                 <td>Endereço: ${e.getDestinatario().getEndereco()}</td>

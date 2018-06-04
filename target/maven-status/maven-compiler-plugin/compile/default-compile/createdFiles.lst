@@ -16,5 +16,7 @@ br\senac\tads\pi3b\correios\EncomendaEditarServlet.class
 br\senac\tads\pi3b\correios\DAO\DaoUsuario.class
 br\senac\tads\pi3b\correios\DAO\Conection.class
 br\senac\tads\pi3b\correios\Encomenda.class
+br\senac\tads\pi3b\correios\GerarRelatorioServlet.class
 br\senac\tads\pi3b\correios\UpdateClienteServlet.class
 br\senac\tads\pi3b\correios\DAO\DaoEncomenda.class
+br\senac\tads\pi3b\correios\DAO\DaoRelatorio.class

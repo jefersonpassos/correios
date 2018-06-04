@@ -60,6 +60,7 @@ public class NovaEncomendaServlet extends HttpServlet {
                 String rastreio=DaoEncomenda.incluir(encomenda, cpf);
                 
                 req.setAttribute("rastreio", rastreio);
+                req.setAttribute("encomenda", encomenda);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/nova-encomenda.jsp");
                 dispatcher.forward(req, resp);
             

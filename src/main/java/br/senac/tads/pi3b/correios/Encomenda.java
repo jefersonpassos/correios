@@ -29,6 +29,7 @@ public final class Encomenda {
     //satus da encoemnda entrega/caminho/postado
     private String posicao;
     private String rastreio;
+    private String filial;
 
     public Encomenda(int IdCliente, Destinatario destinatario, double comprimento, double altura, double largura){
         this.IdCliente = IdCliente;
@@ -55,8 +56,14 @@ public final class Encomenda {
         return rast;
     }
     
-    
+    public String getFilial() {
+        return filial;
+    }
 
+    public void setFilial(String filial) {
+        this.filial = filial;
+    }
+    
     public Date getDataPostagem() {
         return dataPostagem;
     }
