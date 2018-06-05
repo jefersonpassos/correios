@@ -27,7 +27,7 @@
                         </a>
                     </div>
                     <div class ="box col s12 m6 l3">
-                        <a href="${pageContext.request.contextPath}/rastreio.jsp">
+                        <a href="${pageContext.request.contextPath}/encomenda-busca.jsp">
                             <div class="menu-rastreio">
                                 <i class="fas fa-shipping-fast"></i>
                                 <span>Rastreio</span>

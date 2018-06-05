@@ -10,7 +10,8 @@
                 <div class ="col s12 m12 l12 menu">
                     <form action="${pageContext.request.contextPath}/encomenda-busca" method="get">
                         <div class ="col s12 m12 l6">
-                            <input type="text" name="rastreio">
+                            <label>codigo do rasteio</label>
+                            <input type="text" name="rastreio" placeholder="codigo do rasteio">
                         </div>
                         <div class ="col s12 m12 l6">
                             <button type="submit">Buscar</button>

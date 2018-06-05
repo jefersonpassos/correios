@@ -42,7 +42,7 @@
             -->
             <a href="${pageContext.request.contextPath}/clientes.jsp">Cliente</a>
             <a href="${pageContext.request.contextPath}/encomenda.jsp">Encomenda</a>
-            <a href="${pageContext.request.contextPath}/rastreio.jsp">Rastreio</a>
+            <a href="${pageContext.request.contextPath}/encomenda-busca.jsp">Rastreio</a>
             <%                if (usuario.getPerfil().equals("admin")) {
             %>   
             <a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a>
@@ -58,5 +58,6 @@
     if (!(err==null)) {
         out.println("<p class='erro'>"+err+"</p>");
         session.removeAttribute("err");
+        session.setAttribute("erro", null);
     }
 %>
