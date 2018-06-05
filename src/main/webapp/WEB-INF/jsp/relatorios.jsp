@@ -9,6 +9,8 @@
 <%
     
     int quantidade = 0;
+    int quantidadeFilial = 0;
+    double valorFilial = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -27,14 +29,18 @@
                         for(Encomenda encomenda : lista){
                             valorT = valorT + encomenda.getValor();
                         }
+                        
+                        
                     %>
                     
                     <table> 
                         <tr>
                             <td>Valor Total: R$ <%= valorT %></td>
-                            <td>Quantidade de Encomendas: ${lista.size()}</td>
-                            
                         </tr>
+                        
+                        <tr>
+                            <td>Quantidade de Encomendas: ${lista.size()}</td>
+                        </tr>    
                     </table>
                 </div>
             </div>

@@ -20,6 +20,7 @@ public class Usuario implements Serializable {
     private String email;
     private String hashSenha;
     private String perfil;
+    private String filial;
     
     public Usuario() {
     }
@@ -62,6 +63,14 @@ public class Usuario implements Serializable {
 
     public void setPerfil(String perfil) {
         this.perfil = perfil;
+    }
+    
+    public String getFilial() {
+        return filial;
+    }
+
+    public void setFilial(String filial) {
+        this.filial = filial;
     }
     
     public boolean validarSenha(String senhaAberta) {

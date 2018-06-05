@@ -32,12 +32,14 @@ public class DaoUsuario {
                     String senha = resultados.getString("senha");
                     String nome = resultados.getString("nome");
                     String perfil = resultados.getString("perfil");
+                    String filial = resultados.getString("filial");
                     
                     usuario.setId(id);
                     usuario.setNome(nome);
                     usuario.setEmail(email);
                     usuario.setSenhaHash(senha);
                     usuario.setPerfil(perfil);
+                    usuario.setFilial(filial);
                 }           
             }
         } catch (SQLException e) {
