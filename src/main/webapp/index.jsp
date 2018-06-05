@@ -13,6 +13,15 @@
         <div class="container">
             <div class="row">		
                 <h1>Astec <span>Aqui sua encomenda chega</span>	</h1>
+
+                <%
+                    Object err = session.getAttribute("erro");
+                    if (!(err == null)) {
+                        out.println("<p class='erro'>"+err+"</p>");
+                        session.removeAttribute("erro");
+                    }
+                %>
+                
                 <form action="${pageContext.request.contextPath}/login" method="post">
                     <input type="email" name="email">
                     <input type="password" name="senha">

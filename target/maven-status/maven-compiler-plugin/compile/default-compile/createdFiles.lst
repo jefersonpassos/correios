@@ -10,7 +10,6 @@ br\senac\tads\pi3b\correios\EncomendaDeletaServlet.class
 usuarios\Funcionario.class
 br\senac\tads\pi3b\correios\EditarClienteServlets.class
 br\senac\tads\pi3b\correios\Destinatario.class
-br\senac\tads\pi3b\correios\Login.class
 br\senac\tads\pi3b\correios\NovaEncomendaServlet.class
 br\senac\tads\pi3b\correios\ClienteBuscaServlet.class
 br\senac\tads\pi3b\correios\EncomendaEditarServlet.class

@@ -3,8 +3,16 @@
 <!DOCTYPE html>
 <html>
     <%@include  file="include/head.jsp" %>
+
     <body id="bg-home" class="cbp-spmenu-push">
         <%@include  file="include/header.jsp" %>
+        <%
+            if (!usuario.getPerfil().equals("admin")) {
+                String erro = "Você não tem acesso a essa página";
+                session.setAttribute("erro", erro);
+                response.sendRedirect("home.jsp");
+            }
+        %>
         <div class="container">
             <div class="row menu">
                 <div class ="col s12 m12 l12">

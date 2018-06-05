@@ -2,6 +2,21 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    if (usuario == null) {
+        String erro = "Por favor entre com um usuário";
+        session.setAttribute("erro", erro);
+        response.sendRedirect("index.jsp");
+    }
+
+    /*
+    HttpSession sessao = request.getSession();
+    sessao.setAttribute("usuario", usuario);
+     */
+%>
+
 <header>
     <div class="container">
         <h1 class="logo"><a href="${pageContext.request.contextPath}/home.jsp">Astec</a></h1>
@@ -18,7 +33,6 @@
             <!--
                 novo usuario (caso for admin)
                 < %
-                Usuario usuario = (Usuario)session.getAttribute("usuario");
                 if (usuario.getPerfil().equals("admin")) {
                 %>
                     <a href="${pageContext.request.contextPath}/novo-usuario.jsp">Novo usuário</a>
@@ -29,9 +43,7 @@
             <a href="${pageContext.request.contextPath}/clientes.jsp">Cliente</a>
             <a href="${pageContext.request.contextPath}/encomenda.jsp">Encomenda</a>
             <a href="${pageContext.request.contextPath}/rastreio.jsp">Rastreio</a>
-            <%
-                Usuario usuario = (Usuario)session.getAttribute("usuario");
-                if (usuario.getPerfil().equals("admin")) {
+            <%                if (usuario.getPerfil().equals("admin")) {
             %>   
             <a href="${pageContext.request.contextPath}/relatorio.jsp">Relatório</a>
             <%
@@ -41,3 +53,10 @@
         </nav>
     </div>
 </header>
+<%
+     Object err = session.getAttribute("erro");
+    if (!(err==null)) {
+        out.println("<p class='erro'>"+err+"</p>");
+        session.removeAttribute("err");
+    }
+%>
